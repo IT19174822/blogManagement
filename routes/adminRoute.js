@@ -27,7 +27,8 @@ const upload = multer({storage:storage});
 const admonController=require("../controller/adminController");
 
 
-admin_route.get('/',admonController.login);
+admin_route.get('/login',admonController.login);
 admin_route.get('/blog-setup',admonController.blogSetup);
+admin_route.post('/',upload.single('blog_image'), admonController.blogSetupSave);
 
 module.exports=admin_route;

@@ -1,31 +1,63 @@
-<%- include("./layouts/header.ejs")  %>
-<div class ="container">
-    <h1>Blog Setup</h1>
-    <form action="" method="POST" enctype="multipart/form-data">
-        <div class="row">
-            <div class="col-sm-20">
-                <input type ="text" name="'blog_title" placeholder="Enter Blog Title" required>
+<%- include("./layouts/header.ejs") %>
+    <div class="container">
+        <h1>Blog Setup</h1>
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm-20">
+                    <input type="text" name="'blog_title" placeholder="Enter Blog Title" required>
+
+                </div>
+
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-20">
+                    <input type="file" name="'blog_image" required>
+
+                </div>
+
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-20">
+                    <textarea name="'description" placeholder="Enter Description" required>
+                        </textarea>
+                </div>
+
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-20">
+                    <input name="'email" placeholder="Enter Email" required>
+
+                </div>
+
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-20">
+                    <input name="password" type="password" required>
+
+                </div>
+
+            </div>
+            
+            <div class="row mt-3">
+                <div class="col-sm-20">
+                    <input  type="submit"  class = "btn btn-primary" value = "Blog Setup" required>
+
+                </div>
 
             </div>
 
-        </div>
-        <div class="row">
-            <div class="col-sm-20">
-                <input type ="file" name="'blog_title" placeholder="Enter Blog Title" required>
+        </form>
 
-            </div>
+    </div>
 
-        </div>
-        <div class="row">
-            <div class="col-sm-20">
-                <input type ="text" name="'blog_title" placeholder="Enter Blog Title" required>
+    <%
+        if(typeof messsage !=='undefined'){
+            %>
+            <p style ="color: red;"><%= messsage %></p>
 
-            </div>
+            <%
+        }    
+    
+    %>
 
-        </div>
-
-
-
-    </form>
-
-</div>
+    <%- include("./layouts/footer.ejs") %>
