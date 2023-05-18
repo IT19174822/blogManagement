@@ -5,6 +5,12 @@ mongoose.connect("mongodb://localhost:27017/BMS");
 const express= require("express");
 const app = express();
 
+
+
+
+
+
+
 const isBlog=require("./middlewares/isBlog");
 app.use(isBlog.isBlog);
 

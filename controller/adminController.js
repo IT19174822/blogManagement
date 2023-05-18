@@ -1,16 +1,31 @@
-const blogOne = async(req,res)=>{
-res.send('Blog 1');
-}
-const blogTwo = async(req,res)=>{
-    res.send('Blog 2');
+const BlogSetting=require('../models/blogSettingModel');
+const User = require("../models/userModel");
+const bcrypt = require('bcrypt');
+
+const login = async(req,res)=>{
+    res.send('Hi login here');
     }
 const blogSetup = async(req,res)=>{
-        res.send('New Blog Setup Here');
+        
+        try{
+
+            var blogSetting= await BlogSetting.find({});
+            if(blogSetting.length>0){
+                res.redirect('/login')
+            }
+            else{
+                res.render('blogSetup');
+            }
+
+        }catch(error){
+            console.log(error.message);
+        }
+
+
  }
         
 
  module.exports={
-    blogOne,
-    blogTwo,
+    login,
     blogSetup
  }
