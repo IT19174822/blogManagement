@@ -17,15 +17,11 @@ const securePassword= async(password)=>{
 
 
 
-
-
-
-
-
-
 const login = async(req,res)=>{
     res.send('Hi login here');
     }
+
+
 const blogSetup = async(req,res)=>{
         
         try{
@@ -41,11 +37,14 @@ const blogSetup = async(req,res)=>{
         }catch(error){
             console.log(error.message);
         }
+    }
+
+
 
         const blogSetupSave= async(req,res)=>{
             try{
                const blog_title= req.body.blog_title;
-               const blog_image= req.file.blog_filename;
+               const blog_image= req.file.filename;
                const description= req.body.description;
                const email= req.body.email;
                const name= req.body.name;
@@ -60,7 +59,7 @@ const blogSetup = async(req,res)=>{
                });
                await blogSetting.save();
 
-               const user =User({
+               const user =new User({
                 name:name,
                 email:email,
                 password:password,
@@ -81,9 +80,6 @@ const blogSetup = async(req,res)=>{
             }catch (error){
                 console.log(error.message);
             }
-
-        }
-
 
  }
         
